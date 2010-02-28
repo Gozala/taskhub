@@ -1,0 +1,48 @@
+body {
+    background: black;
+    color:#CCCCCC;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+li {
+    -moz-appearance: none;
+    vertical-align: middle;
+    min-width: 14.4mm; /* button size */
+    width :500px;
+    margin: 2mm;
+    padding: 0.2mm 0.5mm;
+    line-height: 40px;
+    color: #fff;
+    font-size: 180%;
+    border-width: 8px !important;
+    -moz-border-image: url("../images/buttondark-default-64.png") 8 repeat repeat;
+    -webkit-border-image: url("../images/buttondark-default-64.png") 8 repeat repeat;
+    background: url("../images/no-sync.png") center left no-repeat;
+    padding-left: 40px;
+}
+
+li:first-child {
+    background: url("../images/add.png") center right no-repeat;
+}
+
+:first-letter {
+    text-transform: uppercase;
+}
+
+li > img {
+    border-left: 0.1mm solid #808080;
+    padding-left: 2.2mm;
+    padding-right: 2.2mm;
+    float: right;
+}
+li[sync="true"] {
+    background: url("../images/sync.png") center left no-repeat;
+}
+
