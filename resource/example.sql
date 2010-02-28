@@ -1,4 +1,4 @@
-use "https://gist.github.com/raw/9b427dd1b238aa1c16db/a605e55e5a67ae6bb00669beea7e4bb6b98cfe31/github.gists.xml";
+use "http://gozala.github.com/taskhub/resource/github.gists.xml";
 INSERT INTO github.gists (
     user,
     token,
@@ -12,8 +12,8 @@ INSERT INTO github.gists (
     "Attempt to create gist using [YQL](https://developer.yahoo.com/yql/).
     
 Table from Irakli Gozalishvili",
-    true
+    1
 )
 
-use "https://gist.github.com/raw/9b427dd1b238aa1c16db/a605e55e5a67ae6bb00669beea7e4bb6b98cfe31/github.gists.xml";
+use "http://gozala.github.com/taskhub/resource/github.gists.xml";
 select * from github.gists where user = "gozala" and description = "metadocs"

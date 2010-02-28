@@ -4,8 +4,26 @@
     <author>Irakli Gozalishvili</author>
     <documentationURL></documentationURL>
     <sampleQuery>
-        use "https://gist.github.com/raw/9b427dd1b238aa1c16db/97814f091953736822790cdf1a4cd8a2aa8d6813/github.gist.xml";
-        select * from github.gists where user="gozala"
+    use "http://gozala.github.com/taskhub/resource/github.gists.xml";
+    select * from github.gists where user = "gozala" and description = "metadocs"
+    </sampleQuery>
+    <sampleQuery>
+        use "http://gozala.github.com/taskhub/resource/github.gists.xml";
+        INSERT INTO github.gists (
+            user,
+            token,
+            name,
+            content,
+            isPrivate
+        ) VALUES (
+            "gozala",
+            "aa8610a73390ea8b6ae9216589494ef9",
+            "test.md",
+            "Attempt to create gist using [YQL](https://developer.yahoo.com/yql/).
+            
+        Table from Irakli Gozalishvili",
+            1
+        )
     </sampleQuery>
   </meta>
   <bindings>
