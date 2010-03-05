@@ -2,15 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" manifest="resource/tasks.manifest">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>TaskHub</title> 
+        <title>TaskHub</title>
+        <!-- <script type="text/javascript" src="http://github.com/Gozala/experiments/raw/master/commonjs/require.js"></script> -->
+        <script type="text/javascript" src="../experiments/commonjs/require.js"></script>
         <script type="text/javascript" src="resource/js/tasksserver.js"></script>
         <script type="text/javascript" src="resource/js/taskseffects.js"></script>
         <script type="text/javascript" src="resource/js/tasksmanager.js"></script>
         <link type="text/css" rel="stylesheet" href="resource/css/main.css"/>
     </head> 
-    <body onload="TasksManager.initialize()" onunload="TasksManager.uninitialize()">
-        <ul id="panel"> 
-            <li onclick="TasksManager.create()">Create a new task</li> 
+    <body>
+        <script>
+            require.setup({
+                packages: { "taskhub": "lib/" },
+                print: function print() { console.log(Array.prototype.join.call(arguments, " ")); }
+            }).main("taskhub/main");
+        </script>
+        <ul id="tasks"> 
+            <li id="new">New task</li> 
         </ul>
     </body>
 </html>

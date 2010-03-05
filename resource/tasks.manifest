@@ -1,7 +1,7 @@
 CACHE MANIFEST
 
-# v2.2
-index.html
+# v2.6
+../index.html
 js/tasksmanager.js
 js/tasksserver.js
 js/taskseffects.js
@@ -13,4 +13,5 @@ images/no-sync.png
 images/buttondark-default-64.png
 
 NETWORK:
-php/tasks.php
+http://github.com/Gozala/experiments/raw/master/commonjs/require.js
+lib/main.js

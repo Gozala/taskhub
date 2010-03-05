@@ -17,7 +17,7 @@
             isPrivate
         ) VALUES (
             "gozala",
-            "aa8610a73390ea8b6ae9216589494ef9",
+            "{hash}",
             "test.md",
             "Attempt to create gist using [YQL](https://developer.yahoo.com/yql/).
             
@@ -61,5 +61,43 @@
             response.object = { id: /gist: (\w*) /.exec(html)[1] };
         ]]></execute>
     </insert>
+    <update itemPath="" produces="JSON">
+        <urls>
+            <url>https://gist.github.com/{id}</url>
+        </urls>
+        <inputs>
+            <key id="user" type="xs:string" paramType="variable" required="true"/>
+            <key id="token" type="xs:string" paramType="variable" required="true"/>
+            <key id="name" type="xs:string" paramType="variable" required="true"/>
+            <key id="content" type="xs:string" paramType="variable" required="true"/>
+            <key id="id" type="xs:string" paramType="path" required="true"/>
+            <key id="extension" type="xs:string" paramType="variable" required="false"/>
+        </inputs>
+        <execute><![CDATA[
+            function encode(data) {
+                var message = "";
+                for (var key in data) {
+                    message += "&" + key + "=" + encodeURIComponent(data[key]);
+                }
+                return message.substring(1);
+            }
+            var data = {
+                login: user,
+                token: token,
+                _method: "put"
+            }
+            data["file_name[" + name + "]"] = name;
+            data["file_ext[" + name + "]"] = extension || name.substr(name.lastIndexOf("."));
+            data["file_contents[" + name + "]"] = content;
+            var html = request
+                .header("Content-type","application/x-www-form-urlencoded")
+                .header("Accept", "text/javascript, text/json")
+                .post(encode(data))
+                .response;
+            response.object = {
+                html: html
+            };
+        ]]></execute>
+    </update>
   </bindings>
 </table>
