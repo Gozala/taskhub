@@ -69,9 +69,9 @@
             <key id="user" type="xs:string" paramType="variable" required="true"/>
             <key id="token" type="xs:string" paramType="variable" required="true"/>
             <key id="name" type="xs:string" paramType="variable" required="true"/>
-            <key id="content" type="xs:string" paramType="variable" required="true"/>
             <key id="id" type="xs:string" paramType="path" required="true"/>
             <key id="extension" type="xs:string" paramType="variable" required="false"/>
+            <value id="content" type="xs:string" paramType="variable" required="true"/>
         </inputs>
         <execute><![CDATA[
             function encode(data) {
