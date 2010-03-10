@@ -34,8 +34,8 @@
                 var gist, match = /file\s*(private|public)[\s\S]*?gist:\s*(\w*)[\s\S]*?<span[^>]*>(\w*)/g;
                 var url = "http://gist.github.com/mine";
                 var result = {};
-                var data = { "login": options.user, "page": 1 };
-                if (token) data.token = "token": options.token;
+                var data = { "login": user, "page": 1 };
+                if (token) data.token = token;
                 
                 while (gist = match.exec(y.rest(url)
                     .header("Content-type","application/x-www-form-urlencoded")
@@ -75,11 +75,11 @@
                     }
                     return message.substring(1);
                 }
-                var data {
+                var data = {
                     "login": login,
-                    "token": token,
+                    "token": token
                 }
-                if (options.isPrivate)  data.action_button = "private";
+                if (isPrivate)  data.action_button = "private";
 
                 var names = name.split(seperator);
                 var contents = contents.split(seperator);
@@ -97,8 +97,7 @@
                     .response;
                 var id = /gist: (\w*) /.exec(html)[1];
                 if (description) {
-                    var url = "https://gist.github.com/gists/" + id + "/update_description";
-                    y.rest(url)
+                    y.rest("https://gist.github.com/gists/" + id + "/update_description")
                         .header("Content-type","application/x-www-form-urlencoded")
                         .header("Accept", "text/javascript, text/json")
                         .post(encode({
@@ -187,8 +186,8 @@
                     return message.substring(1);
                 }
                 var data = {
-                    "login": options.user,
-                    "token": options.token,
+                    "login": user,
+                    "token": token,
                     "_method": "delete"
                 };
                 request
