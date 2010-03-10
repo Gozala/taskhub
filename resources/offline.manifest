@@ -14,4 +14,4 @@ images/buttondark-default-64.png
 
 NETWORK:
 http://github.com/Gozala/experiments/raw/master/commonjs/require.js
-lib/main.js
+../lib/taskhub/main.js
