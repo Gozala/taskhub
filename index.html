@@ -12,8 +12,8 @@
     </head> 
     <body>
         <script>
-            require.setup({
-                packages: { "taskhub": "lib/" },
+            require.Sandbox({
+                catalog: { "taskhub": { path: "" } },
                 print: function print() { console.log(Array.prototype.join.call(arguments, " ")); }
             }).main("taskhub/main");
         </script>
