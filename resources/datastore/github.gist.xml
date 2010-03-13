@@ -25,33 +25,52 @@
         )]]></sampleQuery>
     </meta>
     <bindings>
-        <select itemPath="github.gist" produces="JSON">
+        <select itemPath="" produces="JSON">
+            <urls>
+                <url>http://gist.github.com/mine/</url>
+            </urls>
             <inputs>
                 <key id="user" type="xs:string" paramType="variable" required="true"/>
                 <key id="token" type="xs:string" paramType="variable" required="false"/>
             </inputs>
             <execute><![CDATA[
-                var gist, match = /file\s*(private|public)[\s\S]*?gist:\s*(\w*)[\s\S]*?<span[^>]*>(\w*)/g;
-                var url = "http://gist.github.com/mine";
-                var result = {};
-                var data = { "login": user, "page": 1 };
-                if (token) data.token = token;
-                
-                while (gist = match.exec(y.rest(url)
-                    .header("Content-type","application/x-www-form-urlencoded")
-                    .header("Accept", "text/javascript, text/json")
-                    .post(encode(data))
-                    .response)
-                ) {
-                    data.page ++;
-                    result[gist[2]] = {
-                        id: gist[2],
-                        description: gist[3],
-                        isPrivate: (gist[1] == "private")
-                    };
+                function encode(data) {
+                    var message = "";
+                    for (var key in data) {
+                        message += "&" + encodeURIComponent(key) + "=" + encodeURIComponent(data[key]);
+                    }
+                    return message.substring(1);
                 }
-                
-                response.object = result;
+
+                var url = "http://gist.github.com/mine/";
+                var match = /file\s*(private|public)[\s\S]*?gist:\s*(\w*)[\s\S]*?<span[^>]*>(\w*)/g;
+                var result = [];
+                var index = 1;
+                var data = { login: user };
+                if (token) data.token = token;
+
+                function fetch(index) {
+                    if (index) data.page = index;
+                    collect(y.rest(url)
+                        .header("Content-type","application/x-www-form-urlencoded")
+                        .header("Accept", "text/javascript, text/json")
+                        .post(encode(data))
+                        .response);
+                }
+                function collect(html) {
+                    var gist, success;
+                    while (gist = match.exec(html)) {
+                        success = true;
+                        result.push({
+                            "id": gist[2],
+                            "description": gist[3],
+                            "isPrivate": (gist[1] == "private")
+                        });
+                    }
+                    if (success) fetch(++index);
+                }
+                fetch();
+                response.object = { gists: result };
             ]]></execute>
         </select>
         <insert itemPath="github.gist" produces="JSON">
