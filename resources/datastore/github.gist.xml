@@ -128,7 +128,10 @@
                 response.object = { id: id };
             ]]></execute>
         </insert>
-        <update itemPath="github.gist" produces="JSON">
+        <update itemPath="" produces="JSON">
+            <urls>
+                <url>http://gist.github.com/gists/</url>
+            </urls>
             <inputs>
                 <key id="id" type="xs:string" paramType="variable" required="true"/>
                 <key id="user" type="xs:string" paramType="variable" required="true"/>
@@ -138,6 +141,8 @@
                 <value id="description" type="xs:string" paramType="variable" required="false"/>
             </inputs>
             <execute><![CDATA[
+                var result = response.object = { id: id }
+                var seperator = "˚";
                 function encode(data) {
                     var message = "";
                     for (var key in data) {
@@ -145,49 +150,50 @@
                     }
                     return message.substring(1);
                 }
-                var data = {
-                    login: user,
-                    token: token,
-                    _method: "put"
-                }
-                
                 if (name && content) {
-                    var names = name.split(seperator);
-                    var contents = contents.split(seperator);
-                    for (var i = 0, l = Math.min(names.length, contents.length, 10); i < l; i ++) {
-                        var key = names[i];
-                        data["file_name[" + key + "]"] = key;
-                        data["file_ext[" + key + "]"] = key.substr(key.lastIndexOf("."));
-                        if (!contents[i]) data["file_contents[" + key + "]"] = contents[i];
+                    var data = {
+                        login: user,
+                        token: token,
+                        _method: "put"
                     }
-                    // getting editing session hash
-                    var hash = y.rest("https://gist.github.com/gists/" + id + "/edit")
-                        .header("Content-type","application/x-www-form-urlencoded")
-                        .header("Accept", "text/javascript, text/json")
-                        .get()
-                        .response
-                        .match(/<form[^>]*action="\/gists\/(\d*)"[^>]*method="post"/)[1];
-                    // updating files
-                    var html = y.rest("https://gist.github.com/gists/" + hash)
-                        .header("Content-type","application/x-www-form-urlencoded")
-                        .header("Accept", "text/javascript, text/json")
-                        .post(encode(data));
+
+                    if (name && content) {
+                        var names = name.split(seperator);
+                        var contents = content.split(seperator);
+                        for (var i = 0, l = Math.min(names.length, contents.length, 10); i < l; i ++) {
+                            var key = names[i];
+                            data["file_name[" + key + "]"] = key;
+                            data["file_ext[" + key + "]"] = key.substr(key.lastIndexOf("."));
+                            if (contents[i]) data["file_contents[" + key + "]"] = contents[i];
+                        }
+                        // getting editing session hash
+                        var hash = result.hash = y.rest("https://gist.github.com/gists/" + id + "/edit?" + encode({ login: user, token: token }))
+                            .header("Accept", "text/javascript, text/json")
+                            .get()
+                            .response
+                            .match(/<form[^>]*action="\/gists\/(\d*)"[^>]*method="post"/)[1];
+                        // updating files
+                        var html = y.rest("https://gist.github.com/gists/" + hash)
+                            .header("Content-type","application/x-www-form-urlencoded")
+                            .header("Accept", "text/javascript, text/json")
+                            .post(encode(data))
+                            .response;
+                    }
                 }
-                
+
                 if (description) {
-                    var url = "https://gist.github.com/gists/" + id + "/update_description";
-                    y.rest(url)
+                    y.rest("https://gist.github.com/gists/" + id + "/update_description")
                         .header("Content-type","application/x-www-form-urlencoded")
                         .header("Accept", "text/javascript, text/json")
                         .post(encode({
-                            "login": login,
+                            "login": user,
                             "token": token,
                             "description": description
                         }));
                 }
             ]]></execute>
         </update>
-        <delete itemPath="github.gist" produces="JSON">
+        <delete itemPath="" produces="JSON">
             <urls>
                 <url>https://gist.github.com/delete/{id}</url>
             </urls>
