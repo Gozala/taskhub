@@ -1,48 +1,55 @@
 body {
-    background: black;
-    color:#CCCCCC;
+    background: rgba(46, 42, 42, 1);
+    color: rgb(253, 249, 250);
+    font-size: 2em;
 }
 
+#add {
+    position: absolute;
+    top: 0.4em;
+    right: 0.6em;
+    font-size: 1em;
+    font-family: monaco;
+    display: inline-block;
+    color: rgba(89, 75, 66, 1);
+    text-decoration: none;
+    background: rgba(89, 75, 66, 0.5);
+    border: 0.1em rgba(89, 75, 66, 0.6) solid;
+    padding: 0 0.4em;
+    text-align: conter;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+}
 
 ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
-
-
 li {
-    -moz-appearance: none;
-    vertical-align: middle;
-    min-width: 14.4mm; /* button size */
-    width :500px;
-    margin: 2mm;
-    padding: 0.2mm 0.5mm;
-    line-height: 40px;
-    color: #fff;
-    font-size: 180%;
-    border-width: 8px !important;
-    -moz-border-image: url("../images/buttondark-default-64.png") 8 repeat repeat;
-    -webkit-border-image: url("../images/buttondark-default-64.png") 8 repeat repeat;
-    background: url("../images/no-sync.png") center left no-repeat;
-    padding-left: 40px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(89, 75, 66, 1);
+    padding: 0.4em;
+    margin: 5px;
+}
+li:nth-child(2n+1) {
+    background: rgba(89, 75, 66, 0.8);
+}
+li:hover {
+    background: rgba(52, 46, 46, 1);
 }
 
 li:first-child {
-    background: url("../images/add.png") center right no-repeat;
+    margin: 0;
+    background: rgba(97, 161, 153, 1);
 }
-
-:first-letter {
-    text-transform: uppercase;
+li:first-child[contenteditable=true] {
+    background: #D17100;
 }
-
-li > img {
-    border-left: 0.1mm solid #808080;
-    padding-left: 2.2mm;
-    padding-right: 2.2mm;
-    float: right;
+li[contenteditable=true] {
+    background: rgba(106,100,74, 1);
 }
-li[sync="true"] {
-    background: url("../images/sync.png") center left no-repeat;
-}
-
