@@ -1,7 +1,7 @@
 CACHE MANIFEST
 
-# v2.6
-../index.html
+# v2.8
+
 js/tasksmanager.js
 js/tasksserver.js
 js/taskseffects.js
@@ -14,4 +14,4 @@ images/buttondark-default-64.png
 
 NETWORK:
 http://github.com/Gozala/experiments/raw/master/commonjs/require.js
-../lib/taskhub/main.js
+
