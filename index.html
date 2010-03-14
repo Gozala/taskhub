@@ -2,23 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" manifest="resources/offline.manifest">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <title>TaskHub</title>
-        <!-- <script type="text/javascript" src="http://github.com/Gozala/experiments/raw/master/commonjs/require.js"></script> -->
         <script type="text/javascript" src="../experiments/commonjs/require.js"></script>
-        <script type="text/javascript" src="resources/js/tasksserver.js"></script>
-        <script type="text/javascript" src="resources/js/taskseffects.js"></script>
-        <script type="text/javascript" src="resources/js/tasksmanager.js"></script>
         <link type="text/css" rel="stylesheet" href="resources/css/main.css"/>
-    </head> 
+    </head>
     <body>
         <script>
             require.Sandbox({
-                catalog: { "taskhub": { path: "" } },
+                catalog: {
+                    "taskhub": { path: "" },
+                    "github": { path: "../github/" },
+                    "yql": {path: "../yql/"}
+                },
                 print: function print() { console.log(Array.prototype.join.call(arguments, " ")); }
             }).main("taskhub/main");
         </script>
-        <ul id="tasks"> 
-            <li id="new">New task</li> 
+        <a id="add" href="#add">+</a>
+        <ul class="tasks">
+            <li class="title">Todo List</li>
+            <li class="task">Go to gym</li>
+            <li class="task">Finish Tasks App</li>
+            <li class="task">And do something elese</li>
+            <li class="task">surprise</li>
         </ul>
     </body>
 </html>

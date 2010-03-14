@@ -3,6 +3,9 @@
     "description": "Application for managing tasks. Uses github gist service for storage",
     "version": "0.1",
     "keywords": ["tasks", "github", "gist"],
+    "dependencies": {
+        "github": ["0.1", "1.0"]
+    },
     "maintainers": [
         {
             "name": "Irakli Gozalishvili",
