@@ -5,7 +5,7 @@
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <title>TaskHub</title>
         <script type="text/javascript" src="../experiments/commonjs/require.js"></script>
-        <link type="text/css" rel="stylesheet" href="resources/css/main.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/style.css"/>
     </head>
     <body>
         <script>
@@ -18,13 +18,21 @@
                 print: function print() { console.log(Array.prototype.join.call(arguments, " ")); }
             }).main("taskhub/main");
         </script>
-        <a id="add" href="#add">+</a>
-        <ul class="tasks">
-            <li class="title">Todo List</li>
-            <li class="task">Go to gym</li>
-            <li class="task">Finish Tasks App</li>
-            <li class="task">And do something elese</li>
-            <li class="task">surprise</li>
-        </ul>
+        <div id="login">
+            <input id="login-data" type="text" value="user/token" name="login-data"/>
+        </div>
+        <div id="tasks-view">
+            <a id="settings" href="#settings"></a>
+            <ul id="task-list-view">
+                <li class="task title">Todo List</li>
+                <li class="task">Go to gym</li>
+                <li class="task">Finish Tasks App</li>
+                <li class="task">And do something elese</li>
+                <li class="task">surprise</li>
+            </ul>
+        </div>
+            <div class="ribbon">
+            <a target="_blank" href="https://github.com/Gozala/taskhub">Fork me on GitHub</a>
+        </div>
     </body>
 </html>
