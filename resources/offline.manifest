@@ -1,16 +1,12 @@
 CACHE MANIFEST
 
-# v2.8
+# v0.1
 
-js/tasksmanager.js
-js/tasksserver.js
-js/taskseffects.js
-css/main.css
-images/close-40.png
-images/add.png
-images/sync.png
-images/no-sync.png
-images/buttondark-default-64.png
+css/styles.css
+images/bg.jpg
+images/octocat.png
+images/settings.png
+
 
 NETWORK:
 http://github.com/Gozala/experiments/raw/master/commonjs/require.js

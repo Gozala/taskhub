@@ -55,6 +55,7 @@ ul {
     list-style-type: none;
 }
 li {
+    display: block;
     text-shadow: rgba(0, 0, 0, 1) 0px 1px 1px;
     -webkit-box-shadow: 2px 2px 4px #888;
     -moz-box-shadow: 2px 2px 4px #888;
@@ -78,17 +79,17 @@ li:hover {
 }
 
 li:first-child {
-    margin-right: 5px;
+    margin-right: 5px !important;
     padding-right: 150px;
     text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px;
     font-weight: bold;
-    background: rgba(184, 211, 11, 1);
-    color: rgb(93, 62, 44);
+    background: rgb(184, 211, 11);
+    color: #000;
     margin-bottom: 10px;
-    padding-right: 11%;
 }
 li[contenteditable=true] {
     background: rgba(106,100,74, 0.9);
+    margin-right: 28px;
 }
 li:first-child[contenteditable=true] {
     background: #D17100;
@@ -110,9 +111,11 @@ li:first-child[contenteditable=true] {
 }
 
 #settings:hover {
+    opacity: 0.7;
+}
+#settings:active {
     opacity: 0.8;
 }
-
 .ribbon {
     position: absolute;
     z-index: 3;
