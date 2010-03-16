@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# v0.3
+# v0.4
 ../index.html
 css/styles.css
 images/bg.jpg
@@ -8,8 +8,7 @@ images/octocat.png
 images/settings.png
 
 NETWORK:
-http://github.com/Gozala/experiments/raw/master/commonjs/require.js
-http://github.com/Gozala/github/raw/master/github/gist-yql.js
+http://gozala.github.com/require-js/lib/require.js
 ../taskhub/app.js
 ../taskhub/global-harmony.js
 ../taskhub/main.js
