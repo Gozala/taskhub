@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# v0.2
+# v0.3
 ../index.html
 css/styles.css
 images/bg.jpg
@@ -14,3 +14,5 @@ http://github.com/Gozala/github/raw/master/github/gist-yql.js
 ../taskhub/global-harmony.js
 ../taskhub/main.js
 ../taskhub/model.js
+../github/lib/github/gist-yql.js
+
