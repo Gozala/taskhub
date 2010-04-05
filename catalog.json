@@ -1,0 +1,14 @@
+{
+    "taskhub": { 
+        "path": "http://gozala.github.com/taskhub/",
+        "directories": {
+            "lib": "lib"
+        }        
+    },
+    "github": { 
+        "path": "http://gozala.github.com/github/",
+        "directories": {
+            "lib": "lib"
+        }        
+    }
+}
