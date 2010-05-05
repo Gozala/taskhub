@@ -1,11 +1,11 @@
 CACHE MANIFEST
-# v0.5
+# v0.6
 index.html
 resources/css/styles.css
 resources/images/bg.jpg
 resources/images/octocat.png
 resources/images/settings.png
-../require-js/lib/require.js
+../teleport/lib/teloport.js
 
 NETWORK:
 taskhub/app.js
