@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v0.6
+# v0.8
 index.html
 resources/css/styles.css
 resources/images/bg.jpg
@@ -8,9 +8,9 @@ resources/images/settings.png
 ../teleport/lib/teloport.js
 
 NETWORK:
-taskhub/app.js
-taskhub/global-harmony.js
-taskhub/main.js
-taskhub/model.js
-../github/lib/github/gist-yql.js
+lib/app.js
+lib/global-harmony.js
+lib/main.js
+lib/model.js
+../github/lib/gist-yql.js
 

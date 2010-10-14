@@ -1,38 +1,24 @@
-{
-    "name": "taskhub",
-    "description": "Application for managing tasks. Uses github gist service for storage",
-    "version": "0.1",
-    "keywords": ["tasks", "github", "gist"],
-    "dependencies": {
-        "github": ["0.1", "1.0"]
-    },
-    "maintainers": [
-        {
-            "name": "Irakli Gozalishvili",
-            "email": "rfobic@gmail.com",
-            "web": "http://rfobic.wordpress.com/"
-        }
-    ],
-    "contributors": [
-        {
-            "name": "Irakli Gozalishvili",
-            "email": "rfobic@gmail.com",
-            "web": "http://rfobic.wordpress.com/"
-        }
-    ],
-    "bugs": { "web": "http://github.com/Gozala/taskhub/issues/" },
-    "licenses": [
-        { "type": "GPL" }
-    ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git://github.com/Gozala/taskhub.git",
-        }
-    ],
-    "os": ["linux", "macos", "win"],
-    "cpu": ["x86", "ppc", "x86_64"],
-    "directories": {
-        "lib": "lib"
-    }
+{ "name": "taskhub"
+, "version": "0.1.1"
+, "description": "Application for managing tasks. Uses github gist service for storage."
+, "homepage": "http://github.com/Gozala/taskhub/"
+, "keywords": ["tasks", "github", "gist"]
+, "contributors":
+  [ "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com)" ]
+, "repository":
+  { "type": "git"
+  , "url": "git://github.com/Gozala/taskhub.git"
+  }
+, "bugs": { "web": "http://github.com/Gozala/taskhub/issues/" }
+, "directories":
+  { "doc": "./doc"
+  , "man": "./man"
+  , "lib": "./lib"
+  , "test": "./test"
+  }
+, "dependencies": { "test": ">=0.0.5" }
+, "main": "./lib/taskhub"
+, "scripts": { "test": "node test/all.js" }
+, "engines": { "node": ">=0.1.103" }
+, "licenses" : [ { "type" : "GPL 2.0" } ]
 }
