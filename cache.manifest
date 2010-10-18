@@ -1,13 +1,11 @@
 CACHE MANIFEST
-# v1.0
+# v1.1
 index.html
 resources/css/style.css
 resources/images/bg.jpg
 resources/images/octocat.png
 resources/images/settings.png
 ../teleport/lib/teleport.js
-
-NETWORK:
 lib/app.js
 lib/global-harmony.js
 lib/main.js
