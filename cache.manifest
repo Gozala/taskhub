@@ -1,7 +1,7 @@
 CACHE MANIFEST
-# v0.9
+# v1.0
 index.html
-resources/css/styles.css
+resources/css/style.css
 resources/images/bg.jpg
 resources/images/octocat.png
 resources/images/settings.png
