@@ -1,11 +1,11 @@
 CACHE MANIFEST
-# v0.8
+# v0.9
 index.html
 resources/css/styles.css
 resources/images/bg.jpg
 resources/images/octocat.png
 resources/images/settings.png
-../teleport/lib/teloport.js
+../teleport/lib/teleport.js
 
 NETWORK:
 lib/app.js
